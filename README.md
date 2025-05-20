@@ -1,10 +1,17 @@
 # MWAD-EXP_04-Simple-caluculator
+
+```
+NAME: V. POOJAA SREE
+REG. NO: 212223040147
+
+```
+
 ## Date:
 
-## AIM
+## AIM:
 To  develop a Simple Calculator using React.js with clean and responsive design, ensuring a smooth user experience across different screen sizes.
 
-## ALGORITHM
+## ALGORITHM:
 ### STEP 1
 Create a React App.
 
@@ -45,11 +52,139 @@ Deploy the website.
 ### STEP 12
 Upload to GitHub Pages for free hosting.
 
-## PROGRAM
+## PROGRAM:
+
+```
+App.jsx
+
+import React from "react";
+import Calculator from "./calculator";
+
+function App() {
+  return (
+    <div className="App">
+      <h1>Simple Calculator</h1>
+      <Calculator />
+    </div>
+  );
+}
+
+export default App;
+
+```
 
 
-## OUTPUT
+```
+calculator.jsx
+
+import React, { useState } from "react";
+import "./Calculator.css";
+
+function Calculator() {
+  const [input, setInput] = useState("");
+
+  const handleClick = (value) => {
+    setInput((prev) => prev + value);
+  };
+
+  const handleClear = () => {
+    setInput("");
+  };
+
+  const handleEqual = () => {
+    try {
+      setInput(eval(input).toString());
+    } catch {
+      setInput("Error");
+    }
+  };
+
+  return (
+    <div className="calculator">
+      <input type="text" value={input} readOnly />
+      <div className="buttons">
+        {["7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", ".", "=", "+"].map((btn) =>
+          btn === "=" ? (
+            <button key={btn} onClick={handleEqual}>{btn}</button>
+          ) : (
+            <button key={btn} onClick={() => handleClick(btn)}>{btn}</button>
+          )
+        )}
+        <button className="clear" onClick={handleClear}>C</button>
+      </div>
+    </div>
+  );
+}
+
+export default Calculator;
+
+```
 
 
-## RESULT
+```
+calculator.css
+
+/* src/Calculator.css */
+.calculator {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+    text-align: center;
+  }
+  
+  .calculator input {
+    width: 100%;
+    height: 50px;
+    font-size: 1.5rem;
+    text-align: right;
+    margin-bottom: 10px;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+  
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  
+  button {
+    padding: 15px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #2e86de;
+    color: white;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #1b4f72;
+  }
+  
+  button.clear {
+    grid-column: span 4;
+    background-color: #e74c3c;
+  }
+
+```
+
+
+## OUTPUT:
+
+
+![o1](https://github.com/user-attachments/assets/a259beb5-93a0-4ca1-ac2e-68a64a9dc383)
+
+
+![o2](https://github.com/user-attachments/assets/48caf5cd-1c27-46df-867a-72421a642aae)
+
+
+![o3](https://github.com/user-attachments/assets/c8ddddb3-682a-4804-878b-0b9dfc63c0bf)
+
+
+
+## RESULT:
 The program for developing a simple calculator in React.js is executed successfully.
